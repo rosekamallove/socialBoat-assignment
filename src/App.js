@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 function App() {
-  const numResults = 10;
+  const [numResults, setNumResults] = useState(10);
   const [query, setQuery] = useState("fitness");
   const [out, setOut] = useState({});
   useEffect(() => {
@@ -12,7 +12,7 @@ function App() {
         Accept: "application/json",
       }
     ).then((res) => res.json().then((out) => setOut(out)));
-  }, [query]);
+  }, [query, numResults]);
 
   return (
     <div className="App">
@@ -22,7 +22,7 @@ function App() {
           for="exampleFormControlInput1"
           className="form-label inline-block mb-2 text-gray-700"
         >
-          Example label
+          Query Details
           <input
             className=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
             type="text"
@@ -31,6 +31,15 @@ function App() {
             }}
             value={query}
             placeholder="Enter your Query"
+          />
+          <input
+            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+            type="number"
+            onChange={(e) => {
+              setNumResults(e.target.value);
+            }}
+            value={numResults}
+            placeholder="Number of results to show"
           />
         </label>
       </form>
