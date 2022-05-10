@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "./components/header";
+import RenderCards from "./components/render-cards";
 
 function App() {
   const [numResults, setNumResults] = useState(10);
@@ -24,9 +25,7 @@ function App() {
         setQuery={setQuery}
         className="z-50"
       />
-      <div className="text-gray-700 -z-10  bg-white bg-clip-padding border border-solid border-gray-300 rounded m-10">
-        <pre className="-z-20">{JSON.stringify(out, null, 2)}</pre>
-      </div>
+      <RenderCards cards={out.results} />
     </>
   );
 }
