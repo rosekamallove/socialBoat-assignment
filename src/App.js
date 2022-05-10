@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "./components/header";
 
 function App() {
   const [numResults, setNumResults] = useState(10);
@@ -15,38 +16,18 @@ function App() {
   }, [query, numResults]);
 
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Social Boat</h1>
-      <form>
-        <label
-          for="exampleFormControlInput1"
-          className="form-label inline-block mb-2 text-gray-700"
-        >
-          Query Details
-          <input
-            className=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-            type="text"
-            onChange={(e) => {
-              setQuery(e.target.value);
-            }}
-            value={query}
-            placeholder="Enter your Query"
-          />
-          <input
-            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
-            type="number"
-            onChange={(e) => {
-              setNumResults(e.target.value);
-            }}
-            value={numResults}
-            placeholder="Number of results to show"
-          />
-        </label>
-      </form>
-      <div className="text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded">
-        <pre>{JSON.stringify(out, null, 2)}</pre>
+    <>
+      <Header
+        numResults={numResults}
+        setNumResults={setNumResults}
+        query={query}
+        setQuery={setQuery}
+        className="z-50"
+      />
+      <div className="text-gray-700 -z-10  bg-white bg-clip-padding border border-solid border-gray-300 rounded m-10">
+        <pre className="-z-20">{JSON.stringify(out, null, 2)}</pre>
       </div>
-    </div>
+    </>
   );
 }
 

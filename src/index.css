@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 10px;
+pre {
+  white-space: pre-wrap;
+  overflow-y: hidden;
 }
