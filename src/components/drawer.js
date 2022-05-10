@@ -25,6 +25,14 @@ export default function Drawer({
             <CgClose className="p-2 my-4 mx-2 text-5xl text-gray-400 rounded-full hover:text-red-500 hover:bg-red-500/5" />
           </button>
         </div>
+        <div className="grid place-items-center">
+          <img
+            className="m-5 rounded-full"
+            width="50%"
+            src="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
+            alt="profile"
+          />
+        </div>
         <div>
           <form className="w-full max-w-lg mt-8">
             <div className="flex flex-wrap -mx-3 mb-6">

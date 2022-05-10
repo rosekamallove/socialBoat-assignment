@@ -5,8 +5,8 @@ export default function DesktopNav({
   setNumResults,
 }) {
   return (
-    <div className="mb-20">
-      <nav className="z-40 bg-clip-padding backdrop-filter backdrop-blur-md border border-t-0 border-x-0 px-2 py-1 flex justify-center items-center shadow w-full h-20 border-indigo-200 bg-slate-200 fixed top-0">
+    <div>
+      <nav className="z-40 bg-clip-padding backdrop-filter backdrop-blur-md border border-t-0 border-x-0 px-2 py-1 flex justify-center items-center shadow w-full h-20 border-indigo-200  bg-slate-100 bg-opacity-60 fixed top-0">
         <div className="flex justify-between items-center w-[1280px] h-20 pl-4">
           <a href="/">
             <img
@@ -46,6 +46,12 @@ export default function DesktopNav({
             </div>
           </form>
         </div>
+        <img
+          className="m-5 rounded-full"
+          width="4%"
+          src="https://www.pngitem.com/pimgs/m/78-786293_1240-x-1240-0-avatar-profile-icon-png.png"
+          alt="profile"
+        />
       </nav>
     </div>
   );

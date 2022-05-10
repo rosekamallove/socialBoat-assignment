@@ -23,7 +23,7 @@ function App() {
         setNumResults={setNumResults}
         query={query}
         setQuery={setQuery}
-        className="z-50"
+        className="z-50 mb-10"
       />
       <RenderCards cards={out.results} />
     </>

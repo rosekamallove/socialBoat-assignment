@@ -10,7 +10,7 @@ export default function MobileNav({
 }) {
   const [navBarOpen, setNavBarOpen] = useState(false);
   return (
-    <div className="flex justify-center items-center bg-slate-200">
+    <div className="flex justify-center items-center bg-slate-100 bg-opacity-50 backdrop-blur-sm fixed top-0 left-0 right-0">
       <div className="flex justify-between items-center w-[1280px] h-20 pl-4 m-0">
         <a href="/">
           <img
