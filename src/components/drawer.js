@@ -1,15 +1,11 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { CgClose } from "react-icons/cg";
+import AppContext from "../context/appContext";
 
-export default function Drawer({
-  open,
-  setOpen,
-  query,
-  setQuery,
-  numResults,
-  setNumResults,
-}) {
+export default function Drawer({ open, setOpen }) {
   const numRef = useRef();
+  const { numResults, setNumResults, query, setQuery } = useContext(AppContext);
+
   return (
     <div>
       <div

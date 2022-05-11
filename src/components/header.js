@@ -1,24 +1,14 @@
 import DesktopNav from "./desktop-nav";
 import MobileNav from "./mobile-nav";
 
-const Header = ({ query, setQuery, numResults, setNumResults }) => {
+const Header = () => {
   return (
     <>
       <div className="lg:hidden">
-        <MobileNav
-          query={query}
-          setQuery={setQuery}
-          numResults={numResults}
-          setNumResults={setNumResults}
-        />
+        <MobileNav />
       </div>
       <div className="hidden lg:flex">
-        <DesktopNav
-          query={query}
-          setQuery={setQuery}
-          numResults={numResults}
-          setNumResults={setNumResults}
-        />
+        <DesktopNav />
       </div>
     </>
   );

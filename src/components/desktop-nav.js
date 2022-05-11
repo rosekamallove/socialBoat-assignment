@@ -1,12 +1,9 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import AppContext from "../context/appContext";
 
-export default function DesktopNav({
-  query,
-  setQuery,
-  numResults,
-  setNumResults,
-}) {
+export default function DesktopNav() {
   const numRef = useRef();
+  const { numResults, setNumResults, query, setQuery } = useContext(AppContext);
 
   return (
     <div>

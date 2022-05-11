@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Header from "./components/header";
 import RenderCards from "./components/render-cards";
+import AppContext from "./context/appContext";
 
 function App() {
   const [numResults, setNumResults] = useState(10);
   const [query, setQuery] = useState("fitness");
   const [out, setOut] = useState({});
+
+  const value = { numResults, setNumResults, query, setQuery };
 
   useEffect(() => {
     fetch(
@@ -18,16 +21,10 @@ function App() {
   }, [query, numResults]);
 
   return (
-    <>
-      <Header
-        numResults={numResults}
-        setNumResults={setNumResults}
-        query={query}
-        setQuery={setQuery}
-        className="z-50 mb-10"
-      />
+    <AppContext.Provider value={value}>
+      <Header className="z-50 mb-10" />
       <RenderCards cards={out.results} />
-    </>
+    </AppContext.Provider>
   );
 }
 

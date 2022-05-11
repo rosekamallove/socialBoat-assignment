@@ -2,12 +2,7 @@ import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import Drawer from "./drawer";
 
-export default function MobileNav({
-  query,
-  setQuery,
-  numResults,
-  setNumResults,
-}) {
+export default function MobileNav() {
   const [navBarOpen, setNavBarOpen] = useState(false);
   return (
     <div className="flex justify-center items-center bg-slate-100 bg-opacity-50 backdrop-blur-sm fixed top-0 left-0 right-0">
@@ -27,14 +22,7 @@ export default function MobileNav({
       >
         <FiMenu className="p-2 m-0 text-5xl text-gray-400 rounded-full hover:text-indigo-500 hover:bg-indigo-500/5" />
       </button>
-      <Drawer
-        open={navBarOpen}
-        setOpen={setNavBarOpen}
-        query={query}
-        setQuery={setQuery}
-        numResults={numResults}
-        setNumResults={setNumResults}
-      />
+      <Drawer open={navBarOpen} setOpen={setNavBarOpen} />
     </div>
   );
 }
