@@ -6,6 +6,7 @@ function App() {
   const [numResults, setNumResults] = useState(10);
   const [query, setQuery] = useState("fitness");
   const [out, setOut] = useState({});
+
   useEffect(() => {
     fetch(
       `https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=${query}&numResults=${numResults}`,

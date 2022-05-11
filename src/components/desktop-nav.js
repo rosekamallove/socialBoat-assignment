@@ -1,9 +1,13 @@
+import { useRef } from "react";
+
 export default function DesktopNav({
   query,
   setQuery,
   numResults,
   setNumResults,
 }) {
+  const numRef = useRef();
+
   return (
     <div>
       <nav className="z-40 bg-clip-padding backdrop-filter backdrop-blur-md border border-t-0 border-x-0 px-2 py-1 flex justify-center items-center shadow w-full h-20 border-indigo-200  bg-slate-100 bg-opacity-60 fixed top-0">
@@ -24,11 +28,13 @@ export default function DesktopNav({
                   className="appearance-none block w-full bg-slate-300 text-gray-700 border border-slate-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="grid-first-name"
                   type="text"
+                  autoFocus={true}
                   placeholder="Enter you Query"
-                  onChange={(e) => {
-                    setQuery(e.target.value);
-                  }}
                   value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" ? numRef.current.focus() : ""
+                  }
                 />
               </div>
               <div className="w-full md:w-1/2 px-3">
@@ -37,10 +43,12 @@ export default function DesktopNav({
                   id="grid-last-name"
                   type="number"
                   placeholder="Number of Queries"
-                  onChange={(e) => {
-                    setNumResults(e.target.value);
-                  }}
                   value={numResults}
+                  ref={numRef}
+                  onChange={(e) => setNumResults(e.target.value)}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" ? numRef.current.blur() : ""
+                  }
                 />
               </div>
             </div>

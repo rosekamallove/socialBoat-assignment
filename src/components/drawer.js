@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { CgClose } from "react-icons/cg";
 
 export default function Drawer({
@@ -8,6 +9,7 @@ export default function Drawer({
   numResults,
   setNumResults,
 }) {
+  const numRef = useRef();
   return (
     <div>
       <div
@@ -17,11 +19,7 @@ export default function Drawer({
         )}
       >
         <div className={"flex justify-end"}>
-          <button
-            onClick={() => {
-              setOpen(false);
-            }}
-          >
+          <button onClick={() => setOpen(false)}>
             <CgClose className="p-2 my-4 mx-2 text-5xl text-gray-400 rounded-full hover:text-red-500 hover:bg-red-500/5" />
           </button>
         </div>
@@ -42,10 +40,11 @@ export default function Drawer({
                   id="grid-first-name"
                   type="text"
                   placeholder="Enter you Query"
-                  onChange={(e) => {
-                    setQuery(e.target.value);
-                  }}
                   value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" ? numRef.current.focus() : ""
+                  }
                 />
               </div>
               <div className="w-full md:w-1/2 px-3">
@@ -54,10 +53,10 @@ export default function Drawer({
                   id="grid-last-name"
                   type="number"
                   placeholder="Number of Queries"
-                  onChange={(e) => {
-                    setNumResults(e.target.value);
-                  }}
                   value={numResults}
+                  ref={numRef}
+                  onChange={(e) => setNumResults(e.target.value)}
+                  onKeyDown={(e) => (e.key === "Enter" ? setOpen(false) : "")}
                 />
               </div>
             </div>
@@ -65,9 +64,7 @@ export default function Drawer({
         </div>
       </div>
       <div
-        onClick={() => {
-          setOpen(false);
-        }}
+        onClick={() => setOpen(false)}
         className={"h-screen w-screen z-10  bg-gradient-to-r from-black/5 to-black/30 fixed right-0 top-0 transition duration-300 ".concat(
           open ? "translate-x-0" : "translate-x-full"
         )}
